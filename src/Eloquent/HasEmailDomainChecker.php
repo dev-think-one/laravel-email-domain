@@ -7,6 +7,14 @@ use Illuminate\Support\Str;
 
 trait HasEmailDomainChecker
 {
+
+    /**
+     * Check is email has public provider.
+     *
+     * @param string|null $email
+     *
+     * @return bool
+     */
     public function hasPublicEmailProviderDomain(?string $email = null): bool
     {
         $email = $this->getEmailProviderDomain($email);
