@@ -4,6 +4,9 @@ namespace EmailDomain\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * @method static static usePublicProviderDomainsFile()
+ */
 class EmailDomainChecker extends Facade
 {
     /**
