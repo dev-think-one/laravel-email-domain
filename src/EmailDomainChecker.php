@@ -110,7 +110,18 @@ class EmailDomainChecker
 
         $domainRegex = str_replace('<DOMAIN>', preg_quote($domain), config('email-domain.checker.regex_pattern'));
 
-        return preg_match($domainRegex, $this->domainsList($domainsFilePath));
+        return (bool) preg_match($domainRegex, $this->domainsList($domainsFilePath));
+    }
+
+    /**
+     * @param string $email
+     * @param string|null $domainsFilePath
+     * @return bool
+     * @throws EmailDomainException
+     */
+    public function isEmailDomainInList(string $email, ?string $domainsFilePath = null): bool
+    {
+        return $this->isDomainInList(Str::afterLast($email, '@'), $domainsFilePath);
     }
 
     public function __call(string $name, array $arguments)

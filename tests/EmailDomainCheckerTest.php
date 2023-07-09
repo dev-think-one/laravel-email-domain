@@ -80,5 +80,10 @@ class EmailDomainCheckerTest extends TestCase
         $this->assertFalse(EmailDomainChecker::isDomainInList('gmail.foo.com'));
         $this->assertFalse(EmailDomainChecker::isDomainInList('gmailcom'));
         $this->assertFalse(EmailDomainChecker::isDomainInList('gmail,com'));
+
+        $this->assertTrue(EmailDomainChecker::isEmailDomainInList('gmail.com'));
+        $this->assertFalse(EmailDomainChecker::isEmailDomainInList('gmail.foo.com'));
+        $this->assertFalse(EmailDomainChecker::isEmailDomainInList('gmailcom'));
+        $this->assertFalse(EmailDomainChecker::isEmailDomainInList('gmail,com'));
     }
 }
